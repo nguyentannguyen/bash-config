@@ -1,0 +1,56 @@
+[push]
+	default = simple
+[rerere]
+	enabled = true
+[user]
+	name = 
+	email = 
+
+[core]
+  	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[alias]
+  	st = status
+	ls = log --color --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset%Cgreen(%cr) %C(bold blue)<%an>%Creset %s' --abbrev-commit -20
+      	lss = log --color --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset%Cgreen(%cr) %C(bold blue)<%an>%Creset %s' --abbrev-commit
+        lsss = log  --graph --pretty=format:'%h - %s' --abbrev-commit
+	lstoday = log --color --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset%Cgreen(%cr) %C(bold blue)<%an>%Creset %s' --abbrev-commit --since="1am"
+	grep = grep -n
+	grepc = grep -n --color
+	relb = branch -r -v
+	stats = shortlog -sne
+	wdiff = diff --word-diff
+	diffc = diff --cached
+	wdiffc = diff --cached --word-diff
+
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+
